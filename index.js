@@ -29,25 +29,29 @@ inquirer.prompt([
         message: 'Position : ',
         choices: ['Manager', 'Intern', 'Engineer'],
         name: 'position',
-        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
-    },
-    {
-        type: 'input',
-        message: 'Enter school: ',
-        name: 'school',
-        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
-    },
-    {
-        type: 'input',
-        message: 'Enter office number: ',
-        name: 'office',
-        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
-    },
-    {
-        type: 'input',
-        message: 'Enter GitHub username: ',
-        name: 'github',
-        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
+        
     },
 
-])
+]).then((data) => {
+    if (`${data.position}` === 'Manager') {
+        inquirer.prompt({
+            type: 'input',
+            message: 'Enter office number: ',
+            name: 'office',
+            validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
+        })
+    } if (`${data.position}` === 'Intern') {
+        inquirer.prompt({
+            type: 'input',
+            message: 'Enter school: ',
+            name: 'school',
+            validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
+        })
+    
+    }if (`${data.position}` === 'Engineer') {
+        inquirer.prompt({type: 'input',
+        message: 'Enter GitHub username: ',
+        name: 'github',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }})
+    }
+})
