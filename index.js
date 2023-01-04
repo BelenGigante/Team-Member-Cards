@@ -20,39 +20,34 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        message: 'Enter school: ',
-        name: 'school',
+        message: 'Enter e-mail: ',
+        name: 'email',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
+    },
+    {
+        type: 'list',
+        message: 'Position : ',
+        choices: ['Manager', 'Intern', 'Engineer'],
+        name: 'position',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
     },
     {
         type: 'input',
-        message: 'Enter e-mail: ',
-        name: 'email',
+        message: 'Enter school: ',
+        name: 'school',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
     },
     {
         type: 'input',
         message: 'Enter office number: ',
         name: 'office',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
     },
     {
         type: 'input',
         message: 'Enter GitHub username: ',
         name: 'github',
-    },
-    {
-        type: 'list',
-        message: 'Position : ',
-        choices: ['Employee', 'Manager', 'Intern', 'Engineer'],
-        name: 'position',
-    },
-    {
-        type: 'input',
-        message: 'Username (Github): ',
-        name: 'gitHub',
-    },
-    {
-        type: 'input',
-        message: 'E-mail: ',
-        name: 'eMail',
+        validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
     },
 
 ])
