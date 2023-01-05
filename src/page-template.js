@@ -1,12 +1,7 @@
 // create the team
 const generateTeamMembers = (team) => {
-
-};
-
-// export function to generate entire page
-module.exports = (team) => {
-    // TODO: MAIN HTML TEMPLATE LITERAL GOES HERE
-`<!DOCTYPE html>
+  return `
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -44,35 +39,53 @@ module.exports = (team) => {
     <h1>My Team</h1>
   </header>
   <main>
-    <article>
-      <h2>Manager</h2>
-      <ul>
-        <li>ID: 1</li>
-        <li>Email: manager@email.com</li>
-        <li>Office Number: 123</li>
-      </ul>
-    </article>
-    <article>
-      <h2>Engineer</h2>
-      <ul>
-        <li>ID: 2</li>
-        <li>Email: engineer@email.com</li>
-        <li>GitHub: <a href="#github">person</a></li>
-      </ul>
-    </article>
-    <article>
-      <h2>Intern</h2>
-      <ul>
-        <li>ID: 3</li>
-        <li>Email: intern@email.com</li>
-        <li>School: FUN University</li>
-      </ul>
-    </article>
+  <div class="text-center p-3 mb-2 bg-info text-dark"> My Team</div>
+        <div>
+        <div class="row">
+        ${team}
+        </div>
   </main>
   <footer>
     &copy; 2022-2023
   </footer>
 </body>
 </html>`
-
 };
+
+const renderManag = (managerInfo) => {
+  return ` 
+<div class="card row align-items-center" style="width: 18rem;">
+    <div class="card-body col">
+      <h5 class="card-title">${managerInfo.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <p class="card-text">ID: ${managerInfo.id}</p>
+      <p>Email: <a href="mailto:${managerInfo.email}"> ${managerInfo.email}</a> </p>
+      <p class="card-text">Office Number: ${managerInfo.officeNumber}</p>
+      </div>
+    </div>
+`}
+const renderHtml = (team) => {
+  const employees = [];
+  for (var i = 0; i < team.length; i++) {
+    const workers = team[i];
+    const position = workers.getRole();
+
+    if (position === 'Manager') {
+      const managerSection = renderManag(workers)
+      employees.push(managerSection)
+    }
+  }
+
+
+const employeeTeam = employees;
+const employeeInfo = generateTeamMembers(employeeTeam)
+return employeeInfo; 
+}
+
+// export function to generate entire page
+// module.exports = (team) => {
+//     // TODO: MAIN HTML TEMPLATE LITERAL GOES HERE
+
+
+// };
+module.exports = renderHtml
