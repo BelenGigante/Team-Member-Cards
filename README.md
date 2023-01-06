@@ -8,5 +8,5 @@ All of the employes must have : Name, Id and  E-mail. Manager will have an extra
 
 ## Instructions
 
-* Refer to the [demostration video](./assets/video/readme_video.webm) for instructions.
+* Refer to the [demostration video](team%20cards.mp4) for instructions.
 
