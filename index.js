@@ -169,35 +169,4 @@ function engineerInfo(){
     });
 };
 
-
-// .then((data) => {
-
-//     if (`${data.position}` === 'Manager') {
-//         inquirer.prompt({
-//             type: 'input',
-//             message: 'Enter office number: ',
-//             name: 'office',
-//             validate: (answer) => { if (answer !== " ") 
-//             { return true } 
-//             else { return 'enter office number to continue' } }
-//         })
-//     } if (`${data.position}` === 'Intern') {
-//         inquirer.prompt({
-//             type: 'input',
-//             message: 'Enter school: ',
-//             name: 'school',
-//             validate: (notBlank) => { if (notBlank) { return true } else { return 'enter school to continue' } }
-//         })
-
-//     }if (`${data.position}` === 'Engineer') {
-//         inquirer.prompt({type: 'input',
-//         message: 'Enter GitHub username: ',
-//         name: 'github',
-//         validate: (notBlank) => { if (notBlank) { return true } else { return 'enter username to continue' } }})
-//     }
-//     const htmlPageContent = generateHTML(data);
-//     fs.writeFile('index.html', htmlPageContent, (err) =>
-//       err ? console.log(err) : console.log('Successfully created index.html!')
-//     );
-// })
 managerInfo();
