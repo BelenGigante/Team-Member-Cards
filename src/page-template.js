@@ -64,6 +64,30 @@ const renderManag = (managerInfo) => {
       </div>
     </div>
 `}
+const renderEng = (engineerInfo) => {
+  return ` 
+<div class="card row align-items-center" style="width: 18rem;">
+    <div class="card-body col">
+      <h5 class="card-title">${engineerInfo.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <p class="card-text">ID: ${engineerInfo.id}</p>
+      <p>Email: <a href="mailto:${engineerInfo.email}"> ${managerInfo.email}</a> </p>
+      <p class="card-text">GutHub User: ${engineerInfo.github}</p>
+      </div>
+    </div>
+`}
+const renderInt = (internInfo) => {
+  return ` 
+<div class="card row align-items-center" style="width: 18rem;">
+    <div class="card-body col">
+      <h5 class="card-title">${internInfo.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <p class="card-text">ID: ${internInfo.id}</p>
+      <p>Email: <a href="mailto:${internInfo.email}"> ${internInfo.email}</a> </p>
+      <p class="card-text">GutHub User: ${internInfo.github}</p>
+      </div>
+    </div>
+`}
 const renderHtml = (team) => {
   const employees = [];
   for (var i = 0; i < team.length; i++) {
@@ -73,6 +97,14 @@ const renderHtml = (team) => {
     if (position === 'Manager') {
       const managerSection = renderManag(workers)
       employees.push(managerSection)
+    }
+    if (position === 'Engineer') {
+      const engineerSection = renderEng(workers)
+      employees.push(engineerSection)
+    }
+    if (position === 'Intern') {
+      const internSection = renderInt(workers)
+      employees.push(internSection)
     }
   }
 
