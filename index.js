@@ -6,78 +6,127 @@ const fs = require('fs');
 const renderHtml = require('./src/page-template');
 const team = [];
 
-function managerInfo(){
+function managerInfo() {
     inquirer.prompt([
         {
             type: 'input',
             message: "Enter Manager's name: ",
             name: 'name',
-            validate: (answer) => { 
-                if (answer !== " ") { return true } 
-                else { return 'enter manager name to continue' } }
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter manager name to continue' }
+            }
         },
         {
             type: 'input',
             message: 'Enter Id: ',
             name: 'id',
-            validate: (answer) => { 
-                if (answer !== " ") { return true } 
-                else { return 'enter Id to continue' } }
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter Id to continue' }
+            }
         },
         {
             type: 'input',
             message: 'Enter e-mail: ',
             name: 'email',
-            validate: (answer) => { 
-                if (answer !== " ") { return true } 
-                else { return 'enter e-mail to continue' } }
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter e-mail to continue' }
+            }
         },
         {
             type: 'input',
             message: 'Office number : ',
             name: 'officeNumber',
-            validate: (answer) => { 
-                if (answer !== " ") { return true } 
-                else { return 'enter office number to continue' } }
-            
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter office number to continue' }
+            }
+
         },
-        
-    
     ])
-    .then((data)=>{
-        const manager= new Manager(data.name,data.id,data.email,data.officeNumber)
-        team.push(manager);
-        createEmployee();
-    });
+        .then((data) => {
+            const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+            team.push(manager);
+            createEmployee();
+        });
 }
-const createEmployee=()=>{
+const createEmployee = () => {
     inquirer.prompt([
         {
             type: 'list',
             message: 'choose a position: ',
             name: 'position',
-            choices: ['Intern','Engineer','no more employees'],
+            choices: ['Intern', 'Engineer', 'no more employees'],
         }
     ])
-    .then(data =>{
-        switch(data.position) {
-            case 'Intern': 
-                internInfo();
-                break;
-            case 'Engineer':
-                engineerInfo();
-                break;
-            case 'no more employees':
-                const teamData= renderHtml(team);
-                fs.writeFile('./src/index.html',teamData,(err)=>
-                err ? console.log(err) : console.log('html generated'));
-                break;
-        }
-     })
+        .then(data => {
+            switch (data.position) {
+                case 'Intern':
+                    internInfo();
+                    break;
+                case 'Engineer':
+                    engineerInfo();
+                    break;
+                case 'no more employees':
+                    const teamData = renderHtml(team);
+                    fs.writeFile('./src/index.html', teamData, (err) =>
+                        err ? console.log(err) : console.log('html generated'));
+                    break;
+            }
+        })
+
 }
+function internInfo(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "Enter Inter's name: ",
+            name: 'name',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter intern name to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter Id: ',
+            name: 'id',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter Id to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter e-mail: ',
+            name: 'email',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter e-mail to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter school: ',
+            name: 'school',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter school to continue' }
+            }
+        },
+    ])
+    .then((data) => {
+        const intern = new Intern(data.name, data.id, data.email, data.school)
+        team.push(intern);
+        createEmployee();
+    });
+};
+
 
 // .then((data) => {
-    
+
 //     if (`${data.position}` === 'Manager') {
 //         inquirer.prompt({
 //             type: 'input',
@@ -94,7 +143,7 @@ const createEmployee=()=>{
 //             name: 'school',
 //             validate: (notBlank) => { if (notBlank) { return true } else { return 'enter school to continue' } }
 //         })
-    
+
 //     }if (`${data.position}` === 'Engineer') {
 //         inquirer.prompt({type: 'input',
 //         message: 'Enter GitHub username: ',
