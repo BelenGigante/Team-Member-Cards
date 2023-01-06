@@ -123,6 +123,51 @@ function internInfo(){
         createEmployee();
     });
 };
+function engineerInfo(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "Enter Engineer's name: ",
+            name: 'name',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter engineer name to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter Id: ',
+            name: 'id',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter Id to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter e-mail: ',
+            name: 'email',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter e-mail to continue' }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter GitHub: ',
+            name: 'github',
+            validate: (answer) => {
+                if (answer !== " ") { return true }
+                else { return 'enter github to continue' }
+            }
+        },
+    ])
+    .then((data) => {
+        const engineer = new Engineer(data.name, data.id, data.email, data.github)
+        team.push(engineer);
+        createEmployee();
+    });
+};
 
 
 // .then((data) => {
