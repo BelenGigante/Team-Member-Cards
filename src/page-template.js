@@ -71,7 +71,7 @@ const renderEng = (engineerInfo) => {
       <h5 class="card-title">${engineerInfo.name}</h5>
       <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
       <p class="card-text">ID: ${engineerInfo.id}</p>
-      <p>Email: <a href="mailto:${engineerInfo.email}"> ${managerInfo.email}</a> </p>
+      <p>Email: <a href="mailto:${engineerInfo.email}"> ${engineerInfo.email}</a> </p>
       <p class="card-text">GutHub User: ${engineerInfo.github}</p>
       </div>
     </div>
