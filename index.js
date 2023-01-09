@@ -72,7 +72,7 @@ const createEmployee = () => {
                 case 'no more employees':
                     const teamData = renderHtml(team);
                     fs.writeFile('./src/index.html', teamData, (err) =>
-                        err ? console.log(err) : console.log('html generated'));
+                        err ? console.log(err) : console.log('index.html generated'));
                     break;
             }
         })

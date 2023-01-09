@@ -84,7 +84,7 @@ const renderInt = (internInfo) => {
       <h6 class="card-subtitle mb-2 text-muted">${internInfo.name}</h6>
       <p class="card-text">ID: ${internInfo.id}</p>
       <p>Email: <a href="mailto:${internInfo.email}"> ${internInfo.email}</a> </p>
-      <p class="card-text">GutHub User: ${internInfo.github}</p>
+      <p class="card-text">GutHub User: ${internInfo.school}</p>
       </div>
     </div>
 `}
@@ -92,7 +92,7 @@ const renderHtml = (team) => {
   const employees = [];
   for (var i = 0; i < team.length; i++) {
     const workers = team[i];
-    //const position = workers.getRole();
+    const position = workers.getRole();
 
     if (position === 'Manager') {
       const managerSection = renderManag(workers)

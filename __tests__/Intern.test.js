@@ -13,7 +13,7 @@ describe("Intern", () => {
         expect(intern.email).toBe("th");
         expect(intern.school).toBe("uncc");
     });
-    it('take in a school username with getGithub method', () => {
+    it('take in a school name with getSchool method', () => {
         const intern = new Intern(id, name, email,school);
         expect(intern.getSchool()).toBe("uncc");
     });
