@@ -56,8 +56,8 @@ const renderManag = (managerInfo) => {
   return ` 
 <div class="card row align-items-center" style="width: 18rem;">
     <div class="card-body col">
-      <h5 class="card-title">${managerInfo.name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <h5 class="card-title">Manager</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${managerInfo.name}</h6>
       <p class="card-text">ID: ${managerInfo.id}</p>
       <p>Email: <a href="mailto:${managerInfo.email}"> ${managerInfo.email}</a> </p>
       <p class="card-text">Office Number: ${managerInfo.officeNumber}</p>
@@ -68,8 +68,8 @@ const renderEng = (engineerInfo) => {
   return ` 
 <div class="card row align-items-center" style="width: 18rem;">
     <div class="card-body col">
-      <h5 class="card-title">${engineerInfo.name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <h5 class="card-title">Engineer</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${engineerInfo.name}</h6>
       <p class="card-text">ID: ${engineerInfo.id}</p>
       <p>Email: <a href="mailto:${engineerInfo.email}"> ${engineerInfo.email}</a> </p>
       <p class="card-text">GutHub User: ${engineerInfo.github}</p>
@@ -80,8 +80,8 @@ const renderInt = (internInfo) => {
   return ` 
 <div class="card row align-items-center" style="width: 18rem;">
     <div class="card-body col">
-      <h5 class="card-title">${internInfo.name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <h5 class="card-title">Intern</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${internInfo.name}</h6>
       <p class="card-text">ID: ${internInfo.id}</p>
       <p>Email: <a href="mailto:${internInfo.email}"> ${internInfo.email}</a> </p>
       <p class="card-text">GutHub User: ${internInfo.github}</p>
@@ -92,7 +92,7 @@ const renderHtml = (team) => {
   const employees = [];
   for (var i = 0; i < team.length; i++) {
     const workers = team[i];
-    const position = workers.getRole();
+    //const position = workers.getRole();
 
     if (position === 'Manager') {
       const managerSection = renderManag(workers)
