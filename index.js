@@ -58,7 +58,7 @@ const createEmployee = () => {
             type: 'list',
             message: 'choose a position: ',
             name: 'position',
-            choices: ['Intern', 'Engineer', 'no more employees'],
+            choices: ['Intern', 'Engineer', 'Manager','no more employees'],
         }
     ])
         .then(data => {
@@ -68,6 +68,9 @@ const createEmployee = () => {
                     break;
                 case 'Engineer':
                     engineerInfo();
+                    break;
+                case 'Manager':
+                    managerInfo();
                     break;
                 case 'no more employees':
                     const teamData = renderHtml(team);
@@ -169,4 +172,4 @@ function engineerInfo(){
     });
 };
 
-managerInfo();
+createEmployee();

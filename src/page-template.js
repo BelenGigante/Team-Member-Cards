@@ -62,8 +62,8 @@ const renderManag = (managerInfo) => {
       <p>Email: <a href="mailto:${managerInfo.email}"> ${managerInfo.email}</a> </p>
       <p class="card-text">Office Number: ${managerInfo.officeNumber}</p>
       </div>
-    </div>
-`}
+    </div>`
+}
 const renderEng = (engineerInfo) => {
   return ` 
 <div class="card row align-items-center" style="width: 18rem;">
@@ -74,8 +74,8 @@ const renderEng = (engineerInfo) => {
       <p>Email: <a href="mailto:${engineerInfo.email}"> ${engineerInfo.email}</a> </p>
       <p class="card-text">GutHub User: ${engineerInfo.github}</p>
       </div>
-    </div>
-`}
+    </div>`
+}
 const renderInt = (internInfo) => {
   return ` 
 <div class="card row align-items-center" style="width: 18rem;">
@@ -84,10 +84,10 @@ const renderInt = (internInfo) => {
       <h6 class="card-subtitle mb-2 text-muted">${internInfo.name}</h6>
       <p class="card-text">ID: ${internInfo.id}</p>
       <p>Email: <a href="mailto:${internInfo.email}"> ${internInfo.email}</a> </p>
-      <p class="card-text">GutHub User: ${internInfo.school}</p>
+      <p class="card-text">School Name: ${internInfo.school}</p>
       </div>
-    </div>
-`}
+    </div>`
+}
 const renderHtml = (team) => {
   const employees = [];
   for (var i = 0; i < team.length; i++) {
